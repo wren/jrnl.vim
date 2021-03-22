@@ -16,7 +16,10 @@ usage of jrnl. My main use cases--in no particular order--are:
 - Making todo lists
 
 ## Screenshots
-@todo add some screenshots
+So that you know what you're getting, here's a screenshot of the same file without any
+syntax highlighting (left), and with this plugin installed (right).
+
+![Screenshot with and without plugin installed](images/screenshot.png)
 
 
 ## Features
