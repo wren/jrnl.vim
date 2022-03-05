@@ -23,6 +23,7 @@ syntax highlighting (left), and with this plugin installed (right).
 
 
 ## Features
+- Detects `.jrnl` file extension
 - Supports jrnl header lines
 - Supports [Nerd Fonts](https://www.nerdfonts.com/)
 - Highlights jrnl tags (e.g. @tag)
