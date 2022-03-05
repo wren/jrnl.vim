@@ -38,7 +38,7 @@ syntax highlighting (left), and with this plugin installed (right).
   - `- [.]` Current item (a la todo.txt)
 - Nicer bullet points
 - Spoiler tags
-- Detect episode markers (e.g. s11e09), and exempt from spellcheck
+- Detects episode markers (e.g. s11e09), and exempt from spellcheck
 - Folding
   - Level 1 fold on every jrnl entry
   - More fold levels for more higher markdown heading levels (e.g. `### Heading 3`)
