@@ -1,3 +1,9 @@
+" Title:        jrnl.vim
+" Description:  jrnl Syntax Plugin for Vim and Neovim
+" URL:          https://github.com/wren/jrnl.vim
+
+au BufRead,BufNewFile *.jrnl set filetype=jrnl
+
 setlocal syntax=markdown
 setlocal textwidth=88
 setlocal spell
@@ -80,4 +86,3 @@ function! JrnlFolds()
 endfunction
 setlocal foldmethod=expr
 setlocal foldexpr=JrnlFolds()
-
