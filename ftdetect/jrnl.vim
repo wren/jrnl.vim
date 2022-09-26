@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.jrnl set filetype=jrnl
+au BufRead,BufNewFile *.{jrnl,journal} setfiletype jrnl
