@@ -1,4 +1,3 @@
-" set syntax=markdown
 " syn include @markdownBase syntax/markdown.vim
 " syn region EntireFile start='\%^' end='\%$' contains=@markdownBase
 set syntax=markdown
