@@ -77,7 +77,7 @@ syntax region JrnlBoxStar start=/\v^\s*- \[\*\]/ end=/$/ contains=JrnlBoxStarTit
 " Bullets
 syntax match JrnlBulletDash /\v(^\s*)@<=-/ conceal contained cchar=
 syntax match JrnlBulletAsterisk /\v(^\s*)@<=\*/ conceal contained cchar=
-syntax region JrnlBulletLine start=/\v^\s*[-*] (\[.\])@!/ end=/$/ contains=JrnlBulletDash,JrnlBulletAsterisk
+syntax region JrnlBulletLine start=/\v^\s*[-*] (\[.\])@!/ end=/$/ contains=JrnlBulletDash,JrnlBulletAsterisk,JrnlTag
 
 " Spoilers
 syntax region JrnlSpoilersStandard matchgroup=jspoilers start=/||/ end=/||/ concealends contains=@Spell,jseasonepbody
