@@ -49,33 +49,33 @@ syntax region JrnlTitleLine
 
 " Todo Boxes
 syntax match JrnlBoxDoneIcon /\v(^\s*)@<=- \[x\]/ conceal contained cchar=
-syntax region JrnlBoxDone start=/^\v\z(\s+)*- \[[xc]\]\s+/ end=/\v^(\z1\s(\s+- \[ \])@!|$)@!/ contains=JrnlBoxDoneIcon
+syntax region JrnlBoxDone start=/^\v\z(\s+)*- \[[xc]\]\s+/ end=/\v^(\z1\s(\s+- \[ \])@!|$)@!/ contains=@Spell,JrnlBoxDoneIcon
 
 syntax match JrnlBoxEmptyIcon /\v(^\s*)@<=- \[ \]/ conceal contained cchar=
-syntax region JrnlBoxEmpty start=/^\v\s*- \[ \]\s+/ end=/$/ contains=JrnlBoxEmptyIcon,JrnlTag
+syntax region JrnlBoxEmpty start=/^\v\s*- \[ \]\s+/ end=/$/ contains=@Spell,JrnlBoxEmptyIcon,JrnlTag
 
 syntax match JrnlBoxActiveIcon /\v(^\s*)@<=- \[\.\]/ conceal contained cchar=
 syntax match JrnlBoxActiveTitle /\v(- \[\.\] )@<=.+/ contained
-syntax region JrnlBoxActive start=/^\v\s*- \[\.\] / end=/\v$/ contains=JrnlBoxActiveTitle,JrnlBoxActiveIcon,JrnlLeadingWhiteSpace
+syntax region JrnlBoxActive start=/^\v\s*- \[\.\] / end=/\v$/ contains=@Spell,JrnlBoxActiveTitle,JrnlBoxActiveIcon,JrnlLeadingWhiteSpace
 
 syntax match JrnlBoxQuestionIcon /\v(^\s*)@<=- \[\?\]/ conceal contained cchar=
-syntax region JrnlBoxQuestion start=/^\v\s*- \[\?\]\s+/ end=/$/ contains=JrnlBoxQuestionIcon,JrnlTag
+syntax region JrnlBoxQuestion start=/^\v\s*- \[\?\]\s+/ end=/$/ contains=@Spell,JrnlBoxQuestionIcon,JrnlTag
 
 syntax match JrnlBoxInfoIcon /\v(^\s*)@<=- \[i\]/ conceal contained cchar=
-syntax region JrnlBoxInfo start=/^\v\s*- \[i\]\s+/ end=/$/ contains=JrnlBoxInfoIcon,,JrnlTag
+syntax region JrnlBoxInfo start=/^\v\s*- \[i\]\s+/ end=/$/ contains=@Spell,JrnlBoxInfoIcon,,JrnlTag
 
 syntax match JrnlBoxImportantIcon /\v(^\s*)@<=- \[!\]/ conceal contained cchar=
 syntax match JrnlBoxImportantTitle /\v(^\s*- \[!\] )@<=.+/ contained
-syntax region JrnlBoxImportant start=/\v^\s*- \[!\]\s+/ end=/$/ contains=JrnlBoxImportantTitle,JrnlLeadingWhiteSpace,JrnlBoxImportantIcon
+syntax region JrnlBoxImportant start=/\v^\s*- \[!\]\s+/ end=/$/ contains=@Spell,JrnlBoxImportantTitle,JrnlLeadingWhiteSpace,JrnlBoxImportantIcon
 
 syntax match JrnlBoxStarIcon /\v(^\s*)@<=- \[\*\]/ conceal contained cchar=
 syntax match JrnlBoxStarTitle /\v(- \[\*\] )@<=.+/
-syntax region JrnlBoxStar start=/\v^\s*- \[\*\]/ end=/$/ contains=JrnlBoxStarTitle,JrnlLeadingWhiteSpace,JrnlBoxStarIcon
+syntax region JrnlBoxStar start=/\v^\s*- \[\*\]/ end=/$/ contains=@Spell,JrnlBoxStarTitle,JrnlLeadingWhiteSpace,JrnlBoxStarIcon
 
 " Bullets
 syntax match JrnlBulletDash /\v(^\s*)@<=-/ conceal contained cchar=
 syntax match JrnlBulletAsterisk /\v(^\s*)@<=\*/ conceal contained cchar=
-syntax region JrnlBulletLine start=/\v^\s*[-*] (\[.\])@!/ end=/$/ contains=JrnlBulletDash,JrnlBulletAsterisk,JrnlTag
+syntax region JrnlBulletLine start=/\v^\s*[-*] (\[.\])@!/ end=/$/ contains=@Spell,JrnlBulletDash,JrnlBulletAsterisk,JrnlTag
 
 " Spoilers
 syntax region JrnlSpoilersStandard matchgroup=jspoilers start=/||/ end=/||/ concealends contains=@Spell,jseasonepbody
