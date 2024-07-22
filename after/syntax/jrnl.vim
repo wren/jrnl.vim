@@ -3,9 +3,9 @@ setlocal textwidth=88
 setlocal spell
 
 highlight JrnlTag guifg=#F8CC7A
-highlight JrnlEntryLine guifg=#66C9FF guibg=none gui=bold,underline
-highlight JrnlDate guifg=#545454 guibg=none
-highlight JrnlNope guifg=none guibg=none gui=none
+highlight JrnlEntryLine guifg=#66C9FF guibg=NONE gui=bold,underline
+highlight JrnlDate guifg=#545454 guibg=NONE
+highlight JrnlNope guifg=NONE guibg=NONE gui=NONE
 highlight JrnlSpoilers guibg=#000000
 highlight JrnlBoxEmpty guifg=#CBE697
 highlight JrnlBoxActive guifg=#CBE697 gui=reverse
