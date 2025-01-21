@@ -1,19 +1,20 @@
-set syntax=markdown
+lua vim.treesitter.language.register("markdown", "jrnl")
+" set syntax=markdown
 
 " Colors
 highlight JrnlTag guifg=#F8CC7A
 highlight JrnlTitle guifg=#66C9FF guibg=none gui=bold,underline
 highlight JrnlDate guifg=#545454 guibg=none
-highlight JrnlMarkdownBackticks guifg=#B282AF
+" highlight JrnlMarkdownBackticks guifg=#B282AF
 highlight JrnlNope guifg=none guibg=none gui=none
-highlight JrnlSpoilers guibg=#000000
-highlight JrnlBoxEmpty guifg=#CBE697
-highlight JrnlBoxActiveTitle guifg=#CBE697 gui=reverse
-highlight JrnlBoxDone guifg=#545454 gui=strikethrough
-highlight JrnlBoxQuestion guifg=#B283AF
-highlight JrnlBoxInfo guifg=#9CDBFC
-highlight JrnlBoxImportantTitle guifg=#EA9073 gui=bold,reverse
-highlight JrnlBoxStarTitle guifg=#EEC476 gui=bold,reverse
+" highlight JrnlSpoilers guibg=#000000
+" highlight JrnlBoxEmpty guifg=#CBE697
+" highlight JrnlBoxActiveTitle guifg=#CBE697 gui=reverse
+" highlight JrnlBoxDone guifg=#545454 gui=strikethrough
+" highlight JrnlBoxQuestion guifg=#B283AF
+" highlight JrnlBoxInfo guifg=#9CDBFC
+" highlight JrnlBoxImportantTitle guifg=#EA9073 gui=bold,reverse
+" highlight JrnlBoxStarTitle guifg=#EEC476 gui=bold,reverse
 highlight clear Conceal
 
 " markdown headers sometimes conflict with jrnl tags
@@ -34,7 +35,7 @@ syntax match JrnlStar /\v\*$/ contained conceal cchar=⭐
 
 highlight def link JrnlTitleWithStar JrnlTitle
 
-syntax match NoSpellUrl '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
+" syntax match NoSpellUrl '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 " syntax match NoSpellApostrophe '\'s' contains=@NoSpell
 " syntax match JrnlLeadingWhiteSpace /\v^.{-}\] +/ contained
 syntax match JrnlLeadingWhiteSpace /\v^\s+(- \[.\] +)@=/ contained
@@ -48,37 +49,37 @@ syntax region JrnlTitleLine
 
 
 " Todo Boxes
-syntax match JrnlBoxDoneIcon /\v(^\s*)@<=- \[x\]/ conceal contained cchar=
-syntax region JrnlBoxDone start=/^\v\z(\s+)*- \[[xc]\]\s+/ end=/\v^(\z1\s(\s+- \[ \])@!|$)@!/ contains=@Spell,JrnlBoxDoneIcon
+" syntax match JrnlBoxDoneIcon /\v(^\s*)@<=- \[x\]/ conceal contained cchar=
+" syntax region JrnlBoxDone start=/^\v\z(\s+)*- \[[xc]\]\s+/ end=/\v^(\z1\s(\s+- \[ \])@!|$)@!/ contains=@Spell,JrnlBoxDoneIcon
+"
+" syntax match JrnlBoxEmptyIcon /\v(^\s*)@<=- \[ \]/ conceal contained cchar=
+" syntax region JrnlBoxEmpty start=/^\v\s*- \[ \]\s+/ end=/$/ contains=@Spell,JrnlBoxEmptyIcon,JrnlTag
+"
+" syntax match JrnlBoxActiveIcon /\v(^\s*)@<=- \[\.\]/ conceal contained cchar=
+" syntax match JrnlBoxActiveTitle /\v(- \[\.\] )@<=.+/ contained
+" syntax region JrnlBoxActive start=/^\v\s*- \[\.\] / end=/\v$/ contains=@Spell,JrnlBoxActiveTitle,JrnlBoxActiveIcon,JrnlLeadingWhiteSpace
+"
+" syntax match JrnlBoxQuestionIcon /\v(^\s*)@<=- \[\?\]/ conceal contained cchar=
+" syntax region JrnlBoxQuestion start=/^\v\s*- \[\?\]\s+/ end=/$/ contains=@Spell,JrnlBoxQuestionIcon,JrnlTag
+"
+" syntax match JrnlBoxInfoIcon /\v(^\s*)@<=- \[i\]/ conceal contained cchar=
+" syntax region JrnlBoxInfo start=/^\v\s*- \[i\]\s+/ end=/$/ contains=@Spell,JrnlBoxInfoIcon,,JrnlTag
+"
+" syntax match JrnlBoxImportantIcon /\v(^\s*)@<=- \[!\]/ conceal contained cchar=
+" syntax match JrnlBoxImportantTitle /\v(^\s*- \[!\] )@<=.+/ contained
+" syntax region JrnlBoxImportant start=/\v^\s*- \[!\]\s+/ end=/$/ contains=@Spell,JrnlBoxImportantTitle,JrnlLeadingWhiteSpace,JrnlBoxImportantIcon
+"
+" syntax match JrnlBoxStarIcon /\v(^\s*)@<=- \[\*\]/ conceal contained cchar=
+" syntax match JrnlBoxStarTitle /\v(- \[\*\] )@<=.+/
+" syntax region JrnlBoxStar start=/\v^\s*- \[\*\]/ end=/$/ contains=@Spell,JrnlBoxStarTitle,JrnlLeadingWhiteSpace,JrnlBoxStarIcon
 
-syntax match JrnlBoxEmptyIcon /\v(^\s*)@<=- \[ \]/ conceal contained cchar=
-syntax region JrnlBoxEmpty start=/^\v\s*- \[ \]\s+/ end=/$/ contains=@Spell,JrnlBoxEmptyIcon,JrnlTag
-
-syntax match JrnlBoxActiveIcon /\v(^\s*)@<=- \[\.\]/ conceal contained cchar=
-syntax match JrnlBoxActiveTitle /\v(- \[\.\] )@<=.+/ contained
-syntax region JrnlBoxActive start=/^\v\s*- \[\.\] / end=/\v$/ contains=@Spell,JrnlBoxActiveTitle,JrnlBoxActiveIcon,JrnlLeadingWhiteSpace
-
-syntax match JrnlBoxQuestionIcon /\v(^\s*)@<=- \[\?\]/ conceal contained cchar=
-syntax region JrnlBoxQuestion start=/^\v\s*- \[\?\]\s+/ end=/$/ contains=@Spell,JrnlBoxQuestionIcon,JrnlTag
-
-syntax match JrnlBoxInfoIcon /\v(^\s*)@<=- \[i\]/ conceal contained cchar=
-syntax region JrnlBoxInfo start=/^\v\s*- \[i\]\s+/ end=/$/ contains=@Spell,JrnlBoxInfoIcon,,JrnlTag
-
-syntax match JrnlBoxImportantIcon /\v(^\s*)@<=- \[!\]/ conceal contained cchar=
-syntax match JrnlBoxImportantTitle /\v(^\s*- \[!\] )@<=.+/ contained
-syntax region JrnlBoxImportant start=/\v^\s*- \[!\]\s+/ end=/$/ contains=@Spell,JrnlBoxImportantTitle,JrnlLeadingWhiteSpace,JrnlBoxImportantIcon
-
-syntax match JrnlBoxStarIcon /\v(^\s*)@<=- \[\*\]/ conceal contained cchar=
-syntax match JrnlBoxStarTitle /\v(- \[\*\] )@<=.+/
-syntax region JrnlBoxStar start=/\v^\s*- \[\*\]/ end=/$/ contains=@Spell,JrnlBoxStarTitle,JrnlLeadingWhiteSpace,JrnlBoxStarIcon
-
-" Bullets
-syntax match JrnlBulletDash /\v(^\s*)@<=-/ conceal contained cchar=
-syntax match JrnlBulletAsterisk /\v(^\s*)@<=\*/ conceal contained cchar=
-syntax region JrnlBulletLine start=/\v^\s*[-*] (\[.\])@!/ end=/$/ contains=@Spell,JrnlBulletDash,JrnlBulletAsterisk,JrnlTag
+" " Bullets
+" syntax match JrnlBulletDash /\v(^\s*)@<=-/ conceal contained cchar=
+" syntax match JrnlBulletAsterisk /\v(^\s*)@<=\*/ conceal contained cchar=
+" syntax region JrnlBulletLine start=/\v^\s*[-*] (\[.\])@!/ end=/$/ contains=@Spell,JrnlBulletDash,JrnlBulletAsterisk,JrnlTag
 
 " Spoilers
-syntax region JrnlSpoilersStandard matchgroup=jspoilers start=/||/ end=/||/ concealends contains=@Spell,jseasonepbody
+" syntax region JrnlSpoilersStandard matchgroup=jspoilers start=/||/ end=/||/ concealends contains=@Spell,jseasonepbody
 
 " highlight def link jlbracket JrnlDate
 " highlight def link jseasoneptitle JrnlTitleLine
@@ -87,4 +88,4 @@ syntax region JrnlSpoilersStandard matchgroup=jspoilers start=/||/ end=/||/ conc
 " " Nopes
 " " highlight def link jseasonepbody JrnlNope
 highlight def link JrnlLeadingWhiteSpace JrnlNope
-highlight def link JrnlActiveBoxIcon JrnlNope
+" highlight def link JrnlActiveBoxIcon JrnlNope
